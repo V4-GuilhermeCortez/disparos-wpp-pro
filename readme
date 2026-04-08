@@ -1,0 +1,49 @@
+# 🚀 Disparos WPP Pro
+
+Um painel completo de gerenciamento de campanhas, disparos de mensagens e enquetes interativas para WhatsApp. Construído com uma arquitetura PHP MVC limpa, armazenamento rápido em JSON (Flat-file) e integração nativa com a Evolution API e Webhooks (n8n/Make).
+
+![Status do Projeto](https://img.shields.io/badge/Status-Concluído-success)
+![PHP Version](https://img.shields.io/badge/PHP-8.0+-blue)
+![Arquitetura](https://img.shields.io/badge/Architecture-MVC-purple)
+
+## ✨ Funcionalidades Principais
+
+* 🔐 **Segurança e Autenticação:** Sistema de login com controle de sessão e senhas protegidas por hash (`Bcrypt`). Gatekeeper integrado para rotas privadas.
+* 📢 **Disparo de Campanhas:** Envio de mensagens de texto e mídia (Base64) via WhatsApp. Suporte a reenvio e exclusão de campanhas.
+* 📊 **Enquetes Interativas:** Criação de enquetes dinâmicas. Captura e cômputo de votos em **tempo real** através de Webhooks.
+* 📈 **Dashboard e Relatórios:** Acompanhamento de KPIs (Disparos, Leads Alcançados, Valor em Estoque). Gráficos interativos renderizados com Chart.js.
+* 📄 **Exportação Profissional:** Geração de relatórios completos em PDF com um clique.
+* 🧹 **Reset Rápido:** Limpeza de dados diários (contatos e disparos) com log de segurança.
+* ⚙️ **Integração Externa:** Comunicação direta com webhooks de automação (n8n, Make) para fluxo de dados.
+
+## 🛠️ Tecnologias Utilizadas
+
+* **Back-end:** PHP (Vanilla) com padrão de arquitetura MVC (Model-View-Controller) e Service Pattern.
+* **Banco de Dados:** Flat-file JSON (Leve, portátil e sem necessidade de setup de SQL).
+* **Front-end:** HTML5, Tailwind CSS (via CDN).
+* **Bibliotecas JS:** * `Chart.js` (Gráficos)
+  * `html2pdf.js` (Geração de relatórios PDF)
+* **Integrações (APIs):** Evolution API (WhatsApp), n8n / Make (Webhooks).
+
+## 📁 Estrutura de Diretórios
+
+O projeto foi rigorosamente modularizado para facilitar a manutenção e escalabilidade:
+
+```text
+/
+├── app/
+│   ├── Controllers/    # Lógica de intermediação (ex: AuthController, PollController)
+│   ├── Models/         # Interação com os dados JSON (ex: User, Campaign, Poll)
+│   ├── Routes/         # Arquivos de rotas isolados por módulo
+│   ├── Services/       # Regras de negócios e integrações (ex: ReportService, WebhookService)
+│   ├── Views/          # Telas e componentes visuais (HTML/PHP)
+│   └── routes.php      # Arquivo mestre de mapeamento de rotas
+├── public/
+│   ├── index.php       # Entry-point da aplicação (Gatekeeper e inicialização)
+│   └── (assets)        # Imagens, uploads temporários, etc.
+├── storage/            # Banco de dados (Arquivos .json)
+│   ├── users.json      # Credenciais de acesso
+│   ├── polls.json      # Histórico e votos de enquetes
+│   ├── stats.json      # KPIs de contatos e disparos diários
+│   └── disparos.json   # Log de envios
+└── README.md
