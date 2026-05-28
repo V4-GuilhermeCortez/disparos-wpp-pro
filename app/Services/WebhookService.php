@@ -6,10 +6,10 @@ class WebhookService {
 
     public function __construct() {
         // O Webhook original (Campanhas com Imagem)
-        $this->webhookUrl = 'https://n8n-n8n.gtrixb.easypanel.host/webhook-test/leleo';
+        $this->webhookUrl = 'https://n8n-n8n.gtrixb.easypanel.host/webhook/leleo';
         
         // NOVO: O Webhook para as Enquetes (Você pode mudar a URL depois se precisar)
-        $this->webhookPollUrl = 'https://n8n-n8n.gtrixb.easypanel.host/webhook-test/enquetes';
+        $this->webhookPollUrl = 'https://n8n-n8n.gtrixb.easypanel.host/webhook/enquetes';
     }
 
     // Função original de enviar Campanhas
